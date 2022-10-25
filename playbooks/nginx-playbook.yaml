@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+  - name: remove HTTPd
+    yum:
+      name: httpd
+      state: removed
+  - name: install NGINX
+    yum:
+      name: nginx
+      state: present
+    notify: enable_NGINX
+  handlers: 
+  - name: enable_NGINX
+    systemd:
+      name: nginx
+      enabled: yes
+      state: started

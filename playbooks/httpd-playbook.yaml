@@ -1,0 +1,21 @@
+---
+- hosts: all
+#  become: true
+  gather_facts: true
+  tasks:
+  - name: remove_NGINX
+    yum:
+      name: nginx
+      state: removed 
+  - name: intsall_HTTPd
+    yum:
+      name: httpd
+      state: present
+    notify:
+    - enable_HTTPd
+  handlers:
+  - name: enable_HTTPd
+    systemd:
+      name: httpd
+      enabled: yes
+      state: started
