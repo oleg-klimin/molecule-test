@@ -9,12 +9,14 @@ lint:
   ansible-lint
 platforms:
   - name: instance
-    image: ubi8/ubi-init
+    image: geerlingguy/docker-centos8-ansible:latest
+#    image: ubi8/ubi-init
     pre_build_image: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-    command: "/usr/sbin/init"
+    command: ""
+#    command: "/usr/sbin/init"
 provisioner:
   name: ansible
 verifier:
