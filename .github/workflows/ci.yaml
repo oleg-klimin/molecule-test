@@ -7,8 +7,8 @@ on:
 
 jobs:
   test:
-  name: Molecule
-  runs-on: ubuntu-22.04
+    name: molecule
+    runs-on: ubuntu-22.04
 
   steps:
     - name: checkout-codebase
