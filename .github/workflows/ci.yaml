@@ -10,20 +10,20 @@ jobs:
     name: molecule
     runs-on: ubuntu-22.04
 
-  steps:
-    - name: checkout-codebase
+    steps:
+      - name: checkout-codebase
       uses: actions/checkout@v2
 
-    - name: setup-python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      - name: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
     
-    - name: install-dependencies
-      run: pip3 install molecule[docker] yamllint ansible-lint
+      - name: install-dependencies
+        run: pip3 install molecule[docker] yamllint ansible-lint
 
-    - name: run-tests
-      run: molecule test
-      env:
-        PY_COLOURS: '1'
-        ANSIBLE_FORCE_COLOR: '1' 
+      - name: run-tests
+        run: molecule test
+        env:
+          PY_COLOURS: '1'
+          ANSIBLE_FORCE_COLOR: '1' 
