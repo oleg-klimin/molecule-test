@@ -23,7 +23,7 @@
           </html>
         dest: "/var/www/html/index.html"
         mode: 0664
-        notify: restart apache
+      notify: restart apache
     
     - name: Ensure Apache is running and starts at boot
       service:
