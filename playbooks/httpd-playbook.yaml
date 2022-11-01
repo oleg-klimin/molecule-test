@@ -14,16 +14,17 @@
     notify:
     - enable_HTTPd
   - name: Copy a web page
-      copy:
-        content: |
-          <html>
-          <head><title>Test OK!</title></head>
-          <body>Test OK!</body>
-          </html>
-        dest: "/var/www/html/index.html"
-        mode: 0664
-      notify:
-      - enable_HTTPd
+    copy:
+      content: |
+        <html>
+        <head><title>Test OK!</title></head>
+        <body>Test OK!</body>
+        </html>
+      dest: "/var/www/html/index.html"
+      mode: 0664
+    notify:
+    - enable_HTTPd
+  
   handlers:
   - name: enable_HTTPd
     systemd:
